@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# Orb Hider
+Hides minimap orbs
