@@ -8,10 +8,10 @@ import net.runelite.client.config.ConfigItem;
 public interface OrbHiderConfig extends Config
 {
 	@ConfigItem(
-			keyName = "hideXpOrb",
-			name = "Hide XP orb",
-			description = "Configures whether the XP orb is hidden",
-			position = 0
+		keyName = "hideXpOrb",
+		name = "Hide XP orb",
+		description = "Configures whether the XP orb is hidden",
+		position = 0
 	)
 	default boolean hideXpOrb()
 	{
@@ -19,10 +19,10 @@ public interface OrbHiderConfig extends Config
 	}
 
 	@ConfigItem(
-			keyName = "hideHealthOrb",
-			name = "Hide Hitpoints orb",
-			description = "Configures whether the Hitpoints orb is hidden",
-			position = 1
+		keyName = "hideHealthOrb",
+		name = "Hide Hitpoints orb",
+		description = "Configures whether the Hitpoints orb is hidden",
+		position = 1
 	)
 	default boolean hideHealthOrb()
 	{
@@ -30,10 +30,10 @@ public interface OrbHiderConfig extends Config
 	}
 
 	@ConfigItem(
-			keyName = "hidePrayerOrb",
-			name = "Hide Prayer orb",
-			description = "Configures whether the Prayer orb is hidden",
-			position = 2
+		keyName = "hidePrayerOrb",
+		name = "Hide Prayer orb",
+		description = "Configures whether the Prayer orb is hidden",
+		position = 2
 	)
 	default boolean hidePrayerOrb()
 	{
@@ -41,10 +41,10 @@ public interface OrbHiderConfig extends Config
 	}
 
 	@ConfigItem(
-			keyName = "hideRunOrb",
-			name = "Hide Run orb",
-			description = "Configures whether the Run orb is hidden",
-			position = 3
+		keyName = "hideRunOrb",
+		name = "Hide Run orb",
+		description = "Configures whether the Run orb is hidden",
+		position = 3
 	)
 	default boolean hideRunOrb()
 	{
@@ -63,10 +63,10 @@ public interface OrbHiderConfig extends Config
 	}
 
 	@ConfigItem(
-			keyName = "hideWorldMapOrb",
-			name = "Hide World Map orb",
-			description = "Configures whether the World Map orb is hidden",
-			position = 5
+		keyName = "hideWorldMapOrb",
+		name = "Hide World Map orb",
+		description = "Configures whether the World Map orb is hidden",
+		position = 5
 	)
 	default boolean hideWorldMapOrb()
 	{
