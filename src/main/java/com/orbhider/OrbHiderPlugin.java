@@ -3,7 +3,6 @@ package com.orbhider;
 import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
-import net.runelite.api.events.WidgetHiddenChanged;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetID;
@@ -52,15 +51,6 @@ public class OrbHiderPlugin extends Plugin
 	}
 
 	@Subscribe
-	public void onWidgetHiddenChanged(WidgetHiddenChanged event)
-	{
-		if (WidgetInfo.TO_GROUP(event.getWidget().getId()) == WidgetID.MINIMAP_GROUP_ID)
-		{
-			updateAllOrbs();
-		}
-	}
-
-	@Subscribe
 	public void onConfigChanged(ConfigChanged event)
 	{
 		updateAllOrbs();
@@ -71,7 +61,6 @@ public class OrbHiderPlugin extends Plugin
 	{
 		return configManager.getConfig(OrbHiderConfig.class);
 	}
-
 
 	public void updateAllOrbs()
 	{
