@@ -70,18 +70,12 @@ public class OrbHiderPlugin extends Plugin
         updateOrb(client.getWidget(InterfaceID.Orbs.ORB_SPECENERGY), config.hideSpecOrb());
         updateOrb(client.getWidget(InterfaceID.Orbs.ORB_WORLDMAP), config.hideWorldMapOrb());
 
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_OSRS_STRETCH,22), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_OSRS_STRETCH, 22), config.hideWorldMap());
 
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,23), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,24), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,25), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,26), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,27), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,28), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,29), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,30), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,31), config.hideWorldMap());
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,32), config.hideWorldMap());
+        for (int i = 23; i <= 32; i++)
+        {
+            updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC, i), config.hideWorldMap());
+        }
     }
 
     public void showAllOrbs()
@@ -95,16 +89,10 @@ public class OrbHiderPlugin extends Plugin
 
         updateOrb(client.getWidget(InterfaceID.TOPLEVEL_OSRS_STRETCH,22), false);
 
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,23), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,24), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,25), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,26), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,27), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,28), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,29), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,30), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,31), false);
-        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,32), false);
+        for (int i = 23; i <= 32; i++)
+        {
+            updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC, i), false);
+        }
     }
 
     public void updateOrb(Widget orb, boolean hidden)
@@ -114,3 +102,4 @@ public class OrbHiderPlugin extends Plugin
             orb.setHidden(hidden);
         }
     }
+}
