@@ -23,70 +23,95 @@ import javax.inject.Inject;
 )
 public class OrbHiderPlugin extends Plugin
 {
-	@Inject
-	private Client client;
+    @Inject
+    private Client client;
 
-	@Inject
-	private OrbHiderConfig config;
+    @Inject
+    private OrbHiderConfig config;
 
-	@Override
-	protected void startUp() throws Exception
-	{
-		updateAllOrbs();
-	}
+    @Override
+    protected void startUp() throws Exception
+    {
+        updateAllOrbs();
+    }
 
-	@Override
-	protected void shutDown() throws Exception
-	{
-		showAllOrbs();
-	}
+    @Override
+    protected void shutDown() throws Exception
+    {
+        showAllOrbs();
+    }
 
-	@Subscribe
-	public void onWidgetLoaded(WidgetLoaded event)
-	{
-		if (event.getGroupId() == WidgetID.MINIMAP_GROUP_ID)
-		{
-			updateAllOrbs();
-		}
-	}
+    @Subscribe
+    public void onWidgetLoaded(WidgetLoaded event)
+    {
+        if (event.getGroupId() == InterfaceID.ORBS || event.getGroupId() == InterfaceID.TOPLEVEL_OSRS_STRETCH || event.getGroupId() == InterfaceID.TOPLEVEL_PRE_EOC)
+        {
+            updateAllOrbs();
+        }
+    }
 
-	@Subscribe
-	public void onConfigChanged(ConfigChanged event)
-	{
-		updateAllOrbs();
-	}
+    @Subscribe
+    public void onConfigChanged(ConfigChanged event)
+    {
+        updateAllOrbs();
+    }
 
-	@Provides
-	OrbHiderConfig provideConfig(ConfigManager configManager)
-	{
-		return configManager.getConfig(OrbHiderConfig.class);
-	}
+    @Provides
+    OrbHiderConfig provideConfig(ConfigManager configManager)
+    {
+        return configManager.getConfig(OrbHiderConfig.class);
+    }
 
-	public void updateAllOrbs()
-	{
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_XP_ORB), config.hideXpOrb());
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_HEALTH_ORB), config.hideHealthOrb());
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_PRAYER_ORB), config.hidePrayerOrb());
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_RUN_ORB), config.hideRunOrb());
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_SPEC_ORB), config.hideSpecOrb());
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_WORLDMAP_ORB), config.hideWorldMapOrb());
-	}
+    public void updateAllOrbs()
+    {
+        updateOrb(client.getWidget(InterfaceID.Orbs.XP_DROPS), config.hideXpOrb());
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_HEALTH), config.hideHealthOrb());
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_PRAYER), config.hidePrayerOrb());
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_RUNENERGY), config.hideRunOrb());
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_SPECENERGY), config.hideSpecOrb());
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_WORLDMAP), config.hideWorldMapOrb());
 
-	public void showAllOrbs()
-	{
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_XP_ORB), false);
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_HEALTH_ORB),false);
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_PRAYER_ORB), false);
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_RUN_ORB), false);
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_SPEC_ORB), false);
-		updateOrb(client.getWidget(WidgetInfo.MINIMAP_WORLDMAP_ORB), false);
-	}
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_OSRS_STRETCH,22), config.hideWorldMap());
 
-	public void updateOrb(Widget orb, boolean hidden)
-	{
-		if (orb != null)
-		{
-			orb.setHidden(hidden);
-		}
-	}
-}
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,23), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,24), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,25), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,26), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,27), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,28), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,29), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,30), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,31), config.hideWorldMap());
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,32), config.hideWorldMap());
+    }
+
+    public void showAllOrbs()
+    {
+        updateOrb(client.getWidget(InterfaceID.Orbs.XP_DROPS), false);
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_HEALTH),false);
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_PRAYER), false);
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_RUNENERGY), false);
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_SPECENERGY), false);
+        updateOrb(client.getWidget(InterfaceID.Orbs.ORB_WORLDMAP), false);
+
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_OSRS_STRETCH,22), false);
+
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,23), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,24), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,25), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,26), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,27), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,28), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,29), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,30), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,31), false);
+        updateOrb(client.getWidget(InterfaceID.TOPLEVEL_PRE_EOC,32), false);
+    }
+
+    public void updateOrb(Widget orb, boolean hidden)
+    {
+        if (orb != null)
+        {
+            orb.setHidden(hidden);
+        }
+    }
