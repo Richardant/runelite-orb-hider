@@ -72,4 +72,15 @@ public interface OrbHiderConfig extends Config
 	{
 		return true;
 	}
+	
+    	@ConfigItem(
+            keyName = "hideWorldMap",
+            name = "Hide World Map and Compass",
+            description = "Configures whether the World Map and Compass are hidden",
+            position = 6
+    )
+    default boolean hideWorldMap()
+    {
+        return false;
+    }
 }
