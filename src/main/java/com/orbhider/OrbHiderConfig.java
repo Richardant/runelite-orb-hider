@@ -78,9 +78,9 @@ public interface OrbHiderConfig extends Config
             name = "Hide World Map and Compass",
             description = "Configures whether the World Map and Compass are hidden",
             position = 6
-    )
-    default boolean hideWorldMap()
-    {
-        return false;
-    }
+    	)
+	default boolean hideWorldMap()
+	{
+		return false;
+	}
 }
